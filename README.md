@@ -1,6 +1,5 @@
 # DesktopCleaner
-For using DesktopCleaner class library add a reference to it in your project and a using clause at the top of the CS file where you want to use it.
-![](https://github.com/marysahakyan/DesktopCleaner/blob/master/Desktop.gif)</br>
+For using DesktopCleaner class library add a reference to it in your project and a using clause at the top of the CS file where you want to use it.</br>
 DesktopCleaner class library contains **CleanMaster** static class with _public static_ method **Desktop()**.
 ```cs
 using System;
@@ -30,4 +29,4 @@ static void Main(string[] args)
             CleanMaster.Desktop();
         }
 ```
-
+![](https://github.com/marysahakyan/DesktopCleaner/blob/master/Desktop.gif)</br>
