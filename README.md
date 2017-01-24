@@ -1,6 +1,9 @@
 # DesktopCleaner
 For using DesktopCleaner class library add a reference to it in your project and a using clause at the top of the CS file where you want to use it.</br>
-DesktopCleaner class library contains **CleanMaster** static class with _public static_ method **Desktop()**.
+DesktopCleaner class library contains **CleanMaster** static class with _public static_ methods **Desktop()** and **DeleteFrom()**.</br>
+* **Desktop()** method deletes all the unnecessary files from computers desktop.
+* **DeleteFrom(path,suffix)** method deletes files with a given suffix from a given path.
+
 ```cs
 using System;
 using System.IO;
@@ -16,6 +19,14 @@ namespace DesktopCleaner
                     File.Delete(f);
             Console.WriteLine("Deleted!");
         }
+        
+        public static void DeleteFrom(string path,string suffix)
+        {
+            foreach (var f in Directory.GetFiles(path))
+                if (f.Split('.')[f.Split('.').Length - 1] == suffix)
+                    File.Delete(f);
+            Console.WriteLine($"The .{suffix} files are deleted from {path}");
+        }
        
      }
 }
@@ -27,6 +38,7 @@ contents of the call stack, time since last system boot, and the version of the 
 static void Main(string[] args)
         {
             CleanMaster.Desktop();
+            CleanMaster.DeleteFrom("C:\\Users\\Dell\\Desktop\\New Folder", "txt");
         }
 ```
 ![](https://github.com/marysahakyan/DesktopCleaner/blob/master/Desktop.gif)</br>
