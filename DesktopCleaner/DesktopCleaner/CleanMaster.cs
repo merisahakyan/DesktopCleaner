@@ -20,7 +20,7 @@ namespace DesktopCleaner
             Console.WriteLine("Deleted!");
         }
         /// <summary>
-        /// Deletes files with given suffixes from the given path.
+        /// Deletes files with a given suffixes from a given path.
         /// Path form:"C:\...\FolderName.
         /// Suffix form: pdf,exe,txt...
         /// </summary>
