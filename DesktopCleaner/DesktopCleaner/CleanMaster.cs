@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 
 namespace DesktopCleaner
@@ -10,6 +8,9 @@ namespace DesktopCleaner
     public static class CleanMaster
     {
         static string desktoppath;
+        /// <summary>
+        /// 
+        /// </summary>
         public static void Desktop()
         {
             desktoppath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -17,6 +18,22 @@ namespace DesktopCleaner
                 if (f.Split('.')[f.Split('.').Length - 1] != "exe")
                     File.Delete(f);
             Console.WriteLine("Deleted!");
+        }
+        /// <summary>
+        /// Deletes files with given suffixes from the given path.
+        /// Path form:"C:\...\FolderName.
+        /// Suffix form: pdf,exe,txt...
+        /// </summary>
+        /// <param name="path">  </param>
+        /// <param name="suffix"></param>
+
+
+        public static void DeleteFrom(string path,string suffix)
+        {
+            foreach (var f in Directory.GetFiles(path))
+                if (f.Split('.')[f.Split('.').Length - 1] == suffix)
+                    File.Delete(f);
+            Console.WriteLine($"The .{suffix} files are deleted from {path}");
         }
 
     }
